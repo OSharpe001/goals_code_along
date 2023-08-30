@@ -1,1 +1,20 @@
-console.log("Hello, world!");
+const express = require("express");
+const dotenv = require("dotenv").config();
+const Port = process.env.PORT || 5010
+
+const app = express();
+
+app.listen(Port, () => {
+    console.log(`Server started on port ${Port}.`);
+});
+
+// MIDDLEWARE
+// THIS ALLOWS THE BODY OF A POST REQUEST
+app.use(express.json());
+app.use(express.urlencoded({ extended: false}));
+// USE GOALROUTES TO HANDLE ANY ENDPOINTS THAT END WITH /API/GOALS
+app.use("/api/goals", require("./routes/goalRoutes.js"));
+// THIS ROUTE WAS SENT TO THE ROUTES FOLDER
+// app.get("/api/goals", (req, res) => {
+//     res.status(200).json({message: "Get goals"})
+// });
