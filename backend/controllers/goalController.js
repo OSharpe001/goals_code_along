@@ -71,7 +71,7 @@ const deleteGoals = asyncHandler(async(req, res) => {
         throw new Error("Goal not found");
     };
 
-    // FIRST, GET THE PARTICULAR USER
+    // FIRST, GET THE PARTICULAR USER BY ID
     const user = await User.findById(req.user.id);
 
     // CHECK FOR THE USER
