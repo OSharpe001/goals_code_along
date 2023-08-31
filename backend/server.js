@@ -18,6 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 // USE ROUTES/GOALROUTES TO HANDLE ANY ENDPOINTS THAT END WITH /API/GOALS
 app.use("/api/goals", require("./routes/goalRoutes"));
+app.use("/api/users", require("./routes/userRoutes"));
 // THIS ROUTE WAS SENT TO THE ROUTES FOLDER
 // app.get("/api/goals", (req, res) => {
 //     res.status(200).json({message: "Get goals"})
