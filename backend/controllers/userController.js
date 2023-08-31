@@ -12,8 +12,8 @@ const registerUser = asyncHandler(async(req, res) => {
     const { name, email, password } = req.body;
 
     if (!name || !email || !password) {
-        res.status(400)
-        throw new Error("Please add all fields")
+        res.status(400);
+        throw new Error("Please add all fields");
     };
 
     // CHECK IF USER EXISTS
@@ -21,7 +21,7 @@ const registerUser = asyncHandler(async(req, res) => {
 
     if (userExists) {
         res.status(400);
-        throw new Error("User already exists")
+        throw new Error("User already exists");
     };
 
     // HASH THE PASSWORD
@@ -32,7 +32,7 @@ const registerUser = asyncHandler(async(req, res) => {
     const user = await User.create({
         name,
         email,
-        password: hashedPassword
+        password: hashedPassword,
     });
 
     if (user) {
@@ -40,14 +40,12 @@ const registerUser = asyncHandler(async(req, res) => {
             _id: user.id,
             name: user.name,
             email: user.email,
-            token: generateToken(user._id)
+            token: generateToken(user._id),
         });
     } else {
         res.status(400);
         throw new Error("Invalid user data");
     };
-
-    // res.json({ message: "Register User" });
 });
 
 // @desc        Authenticate a user
@@ -64,14 +62,12 @@ const loginUser = asyncHandler(async(req, res) => {
             _id: user.id,
             name: user.name,
             email: user.email,
-            token: generateToken(user._id)
+            token: generateToken(user._id),
         });
     } else {
         res.status(400);
         throw new Error("Invalid credentials");
     };
-
-    // res.json({ message: "Login User" });
 });
 
 // @desc        Get user data
@@ -85,7 +81,6 @@ const getMe = asyncHandler(async(req, res) => {
         name,
         email,
     });
-    // res.json({ message: "User data display" });
 });
 
 // GENERATE JWT
@@ -95,8 +90,4 @@ const generateToken = (id) => {
     });
 };
 
-module.exports = {
-    registerUser,
-    loginUser,
-    getMe,
-}
+module.exports = { registerUser, loginUser, getMe, };
