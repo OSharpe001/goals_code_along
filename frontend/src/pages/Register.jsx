@@ -13,34 +13,10 @@ export default function Register() {
     const {name, email, password, password2} = formData;
 
     const onChange = ({ target }) => {
-        switch (target.name) {
-            case "name":
-                setFormData({
-                    ...formData,
-                    name: target.value,
-                });
-                break;
-            case "email":
-                setFormData({
-                    ...formData,
-                    email: target.value,
-                });
-                break;
-            case "password":
-                setFormData({
-                    ...formData,
-                    password: target.value,
-                });
-                break;
-            case "password2":
-                setFormData({
-                    ...formData,
-                    password2: target.value,
-                });
-                break;
-            default:
-                break;
-        };
+        setFormData(prev => ({
+            ...prev,
+            [target.name]: target.value,
+        }));
     };
 
     const onSubmit = (e) => {
