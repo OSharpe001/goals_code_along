@@ -15,6 +15,7 @@ export default function GoalForm() {
 
         setText("");
     };
+    
     return (
         <section className="form">
             <form onSubmit={onSubmit}>
