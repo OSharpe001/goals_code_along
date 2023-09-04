@@ -1,7 +1,8 @@
 const path = require("path");
 const express = require("express");
 const dotenv = require("dotenv").config();
-const Port = process.env.PORT || 5010;
+// const Port = process.env.PORT || 5010;
+const Port = process.env.PORT;
 const { errorHandler } = require("./middleware/errorMiddleware");
 const app = express();
 const colors = require("colors");
