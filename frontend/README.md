@@ -11,3 +11,6 @@ OLD SCRIPTS:
     "netlify-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend",
     "build": "npm i"
   },
+
+  OLD PORT (FRONTEND PACKAGE.JSON):
+    "proxy": "http://localhost:5009",
