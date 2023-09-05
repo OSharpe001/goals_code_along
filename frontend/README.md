@@ -14,3 +14,5 @@ OLD SCRIPTS:
 
   OLD PORT (FRONTEND PACKAGE.JSON):
     "proxy": "http://localhost:5009",
+  NEXT PROXY:
+    "proxy": "https://sharpgoalsbackend.onrender.com",
