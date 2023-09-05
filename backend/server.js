@@ -35,18 +35,25 @@ app.use("/api/users", require("./routes/userRoutes"));
 //     next();
 //   });
 // ** IF EVEN THAT DOESN'T WORK, YET ANOTHER ATTEMPT CAN BE MADE WITH THIS...
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", 'https://sharpgoals.onrender.com');
-    res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Accept');
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+// app.use((req, res, next) => {
+//     res.setHeader("Access-Control-Allow-Origin", 'https://sharpgoals.onrender.com');
+//     res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
+//     res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Accept');
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
 // --
 
 // SERVE FRONTEND
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../frontend/build")));
+    app.use((req, res, next) => {
+        res.setHeader("Access-Control-Allow-Origin", 'https://sharpgoals.onrender.com');
+        res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Accept');
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+      });
 
     app.get("*", (req,res) => res.sendFile(path.resolve(__dirname, "../", "frontend", "build", "index.html")));
 } else {
