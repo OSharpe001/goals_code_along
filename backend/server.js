@@ -24,27 +24,27 @@ app.use("/api/goals", require("./routes/goalRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));
 
 
-app.use(cors());
+// app.use(cors());
 // --
 // ADDING CORS PARAMETERS TO ALLOW "ACCESS-CONTROL-ALLOW-ORIGIN"
-// app.use(cors({
-//     origin: "https://sharpgoalsbackend.onrender.com"
-// }
-// ));
-// app.options('*', cors());
+app.use(cors({
+    origin: "https://sharpgoalsbackend.onrender.com"
+}
+));
+app.options('*', cors());
 // **IF THE ABOVE FUNCTION DOESN'T WORK, TRY THIS NEXT...
 // app.use(function(req, res, next) {
 //     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 //     next();
 //   });
 // ** IF EVEN THAT DOESN'T WORK, YET ANOTHER ATTEMPT CAN BE MADE WITH THIS...
-// app.use((req, res, next) => {
-//     res.setHeader("Access-Control-Allow-Origin", 'https://sharpgoals.onrender.com');
-//     res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
-//     res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Accept');
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     next();
-//   });
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", 'https://sharpgoals.onrender.com');
+    res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Accept');
+    // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 // --
 
 // SERVE FRONTEND
