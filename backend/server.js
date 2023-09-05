@@ -19,7 +19,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 // USE ROUTES/GOALROUTES TO HANDLE ANY ENDPOINTS THAT END WITH /API/GOALS
 app.use("/api/goals", require("./routes/goalRoutes"));
+// USE ROUTES/USERROUTES TO HANDLE ANY ENDPOINTS THAT END WITH /API/USERS
 app.use("/api/users", require("./routes/userRoutes"));
+
+// --
+// ADDING CORS PARAMETERS TO ALLOW "ACCESS-CONTROL-ALLOW-ORIGIN"
+app.use(cors({
+    origin: "https://sharpgoalsbackend.onrender.com"
+}
+));
+app.options('*', cors());
+// --
 
 // SERVE FRONTEND
 if (process.env.NODE_ENV === "production") {
