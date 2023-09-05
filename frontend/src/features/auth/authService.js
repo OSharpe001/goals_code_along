@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://newsharpgoals.onrender.com"
+const BASE_URL = "https://newsharpgoal.onrender.com"
 const API_URL = "/api/users/";
 
 // REGISTER USER
