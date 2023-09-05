@@ -35,7 +35,7 @@ app.use("/api/users", require("./routes/userRoutes"));
 //     next();
 //   });
 // ** IF EVEN THAT DOESN'T WORK, YET ANOTHER ATTEMPT CAN BE MADE WITH THIS...
-// app.use(function(req, res, next) {
+// app.use((req, res, next) => {
 //     res.setHeader("Access-Control-Allow-Origin", 'http://sharpgoalsbackend.onrender.com');
 //     res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
 //     res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Accept');
