@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://sharpgoalsbackend.onrender.com"
+// const BASE_URL = "https://newsharpgoals.onrender.com"
 const API_URL = "/api/users/";
 
 // REGISTER USER
@@ -17,7 +17,7 @@ const register = async (userData) => {
 
 // LOGIN USER
 const login = async (userData) => {
-    const response = await axios.post(`${BASE_URL}/login`, userData);
+    const response = await axios.post(`${API_URL}/login`, userData);
 
     if (response.data) {
         localStorage.setItem("user", JSON.stringify(response.data));
