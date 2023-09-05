@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "/api/goals/";
+const API_URL = "sharpgoalsbackend.onrender.com/api/goals/";
 
 // CREATE NEW GOAL
 const createGoal = async (goalData, token) => {

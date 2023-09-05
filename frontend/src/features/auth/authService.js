@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "/api/users/";
+const API_URL = "sharpgoalsbackend.onrender.com/api/users/";
 
 // REGISTER USER
 const register = async (userData) => {
