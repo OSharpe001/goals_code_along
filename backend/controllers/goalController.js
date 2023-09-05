@@ -2,12 +2,18 @@ const asyncHandler = require("express-async-handler");
 const Goal = require("../models/goalModel");
 const User = require("../models/userModel");
 
+const Headers = {
+    "Access-Control-Allow-Headers": "*",
+    "Access-Control-Allow-Methods": "*",
+    "Access-Control-Allow-Origin": "*"
+};
+
 // @desc        Get goals
 // @route       GET /api/goals
 // @access      Private
 const getGoals = asyncHandler(async (req,res) => {
     const goals = await Goal.find({ user: req.user.id });
-    res.status(200).json(goals);
+    res.status(200, Headers).json(goals);
 });
 
 // @desc        Set goals
@@ -23,7 +29,7 @@ const setGoals = asyncHandler(async (req, res) => {
         user: req.user.id,
     });
 
-    res.status(200).json(goal);
+    res.status(200, Headers).json(goal);
 });
 
 // @desc        Update goals
@@ -54,7 +60,7 @@ const updateGoals = asyncHandler(async(req, res) => {
     // FINDING THE GOAL AND CREATING IF IT DOESN'T EXIST
     const updatedGoal = await Goal.findByIdAndUpdate(req.params.id, req.body, {new: true});
 
-    res.status(200).json(updatedGoal);
+    res.status(200, Headers).json(updatedGoal);
 });
 
 // @desc        Delete goals
@@ -85,7 +91,7 @@ const deleteGoals = asyncHandler(async(req, res) => {
 
     await Goal.findByIdAndRemove(req.params.id);
 
-    res.status(200).json({ id: req.params.id });
+    res.status(200, Headers).json({ id: req.params.id });
 });
 
 module.exports = { getGoals, setGoals, updateGoals, deleteGoals, };
