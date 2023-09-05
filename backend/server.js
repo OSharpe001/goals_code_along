@@ -1,4 +1,5 @@
 const path = require("path");
+const cors = require("cors");
 const express = require("express");
 const dotenv = require("dotenv").config();
 const Port = process.env.PORT || 5010;
@@ -22,6 +23,8 @@ app.use("/api/goals", require("./routes/goalRoutes"));
 // USE ROUTES/USERROUTES TO HANDLE ANY ENDPOINTS THAT END WITH /API/USERS
 app.use("/api/users", require("./routes/userRoutes"));
 
+
+app.use(cors());
 // --
 // ADDING CORS PARAMETERS TO ALLOW "ACCESS-CONTROL-ALLOW-ORIGIN"
 // app.use(cors({
@@ -48,7 +51,7 @@ app.use("/api/users", require("./routes/userRoutes"));
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../frontend/build")));
     app.use((req, res, next) => {
-        res.setHeader("Access-Control-Allow-Origin", 'https://sharpgoals.onrender.com');
+        res.setHeader("Access-Control-Allow-Origin", 'https://sharpgoal.onrender.com');
         res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
         res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Accept');
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
