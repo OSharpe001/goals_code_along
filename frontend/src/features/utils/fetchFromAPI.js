@@ -14,8 +14,8 @@ export const fetchFromAPI = async (url, options) => {
   return data;
 };
 
-export const postToAPI = async (url, info, options) => {
-  const { data } = await axios.post(`${BASE_URL}/${url}`, info,  options);
+export const postToAPI = async (url, ...options) => {
+  const { data } = await axios.post(`${BASE_URL}/${url}`, options);
   return data;
 };
 export const deleteFromAPI = async (url, options) => {
