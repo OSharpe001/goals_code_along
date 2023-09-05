@@ -13,3 +13,12 @@ export const fetchFromAPI = async (url) => {
   const { data } = await axios.get(`${BASE_URL}/${url}`, options);
   return data;
 };
+
+export const postToAPI = async (url) => {
+  const { data } = await axios.post(`${BASE_URL}/${url}`, options);
+  return data;
+};
+export const deleteFromAPI = async (url) => {
+  const { data } = await axios.delete(`${BASE_URL}/${url}`, options);
+  return data;
+};

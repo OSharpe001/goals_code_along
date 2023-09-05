@@ -1,12 +1,12 @@
-// import fetchFromAPI from "fetchFromAPI";
-import { fetchFromAPI } from "../utils/fetchFromAPI";
+// import axios from "axios";
+import { postToAPI } from "../utils/fetchFromAPI";
 
 
 const API_URL = "api/users/";
 
 // REGISTER USER
 const register = async (userData) => {
-    const response = await fetchFromAPI(API_URL, userData);
+    const response = await postToAPI(API_URL, userData);
 
     if (response.data) {
         localStorage.setItem("user", JSON.stringify(response.data));
@@ -17,7 +17,7 @@ const register = async (userData) => {
 
 // LOGIN USER
 const login = async (userData) => {
-    const response = await fetchFromAPI(`${API_URL}login`, userData);
+    const response = await postToAPI(`${API_URL}login`, userData);
 
     if (response.data) {
         localStorage.setItem("user", JSON.stringify(response.data));

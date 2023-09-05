@@ -1,5 +1,5 @@
-// import fetchFromAPI from "fetchFromAPI";
-import { fetchFromAPI } from "../utils/fetchFromAPI";
+// import axios from "axios";
+import { fetchFromAPI, postToAPI, deleteFromAPI } from "../utils/fetchFromAPI";
 
 
 const API_URL = "api/goals/";
@@ -12,7 +12,7 @@ const createGoal = async (goalData, token) => {
         },
     };
 
-    const response = await fetchFromAPI.post(API_URL, goalData, config);
+    const response = await postToAPI(API_URL, goalData, config);
 
     return response.data
 };
@@ -25,7 +25,7 @@ const getGoals = async (token) => {
         },
     };
 
-    const response = await fetchFromAPI.get(API_URL, config);
+    const response = await fetchFromAPI(API_URL, config);
 
     return response.data
 };
@@ -38,7 +38,7 @@ const deleteGoal = async (goalId, token) => {
         },
     };
 
-    const response = await fetchFromAPI.delete(API_URL + goalId, config);
+    const response = await deleteFromAPI(API_URL + goalId, config);
 
     return response.data
 };
