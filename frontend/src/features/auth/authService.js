@@ -14,26 +14,25 @@ const register = async (userData) => {
     return response.data
 };
 // LOGIN USER
-// const login = async (userData) => {
-    // const response = await axios.post(`${BASE_URL}${API_URL}login`, userData);
-    const login = async (userData) => {
-        const data = await axios.post(`${BASE_URL}${API_URL}`, userData);
-        console.log("DATA: ", data)
-        // return data;
-      
-      if (login.data) {
-            localStorage.setItem("user", JSON.stringify(login.data));
-        };
-    
-        return login.data
+const login = async (userData) => {
+    const response = await axios.post(`${BASE_URL}${API_URL}login`, userData);
+
+    console.log("DATA: ", response.data)
+    if (response.data) {
+        localStorage.setItem("user", JSON.stringify(response.data));
     };
 
-    // if (response.data) {
-    //     localStorage.setItem("user", JSON.stringify(response.data));
+    return response.data
+};
+// const login = async (userData) => {
+    //     const { data } = await axios.post(`${BASE_URL}${API_URL}login`, userData);
+    //     console.log("DATA: ", data)
+    //     // return data;
+    //   if (data) {
+    //         localStorage.setItem("user", JSON.stringify(data));
+    //     };
+    //     return data
     // };
-
-    // return response.data
-// };
 
 // LOGOUT USER
 const logout = () => {
