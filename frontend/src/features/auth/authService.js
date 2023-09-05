@@ -1,4 +1,4 @@
-// import axios from "axios";
+import axios from "axios";
 import { postToAPI } from "../utils/fetchFromAPI";
 
 
@@ -19,6 +19,7 @@ const register = async (userData) => {
 const login = async (userData) => {
     const response = await postToAPI(`${API_URL}login`, userData);
 
+    console.log("*****: ", axios(`${API_URL}login`, userData))
     if (response.data) {
         localStorage.setItem("user", JSON.stringify(response.data));
     };
