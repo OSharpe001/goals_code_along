@@ -5,7 +5,11 @@ const BASE_URL = "https://sharpgoalsbackend.onrender.com";
 const options = {
   headers: {
     // 'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
-    'X-RapidAPI-Host': 'sharpgoalsbackend.onrender.com'
+    'X-RapidAPI-Host': 'sharpgoalsbackend.onrender.com',
+    "serializedOrigin": "null",
+    "Origin": "noreferrer",
+    "Sec-Fetch-Mode": "null",
+    "Sec-Fetch-Site": "strict-origin",
   }
 };
 
