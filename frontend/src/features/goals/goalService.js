@@ -2,7 +2,6 @@ import axios from "axios";
 
 const API_URL = "/api/goals/";
 
-console.log("AXIOS VALUE: ", axios);
 // CREATE NEW GOAL
 const createGoal = async (goalData, token) => {
     const config = {
