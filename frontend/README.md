@@ -16,3 +16,5 @@ OLD SCRIPTS:
     "proxy": "http://localhost:5009",
   NEXT PROXY:
     "proxy": "https://sharpgoalsbackend.onrender.com",
+  
+    // "proxy": "https://newsharpgoal.onrender.com",
