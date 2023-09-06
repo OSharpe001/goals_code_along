@@ -2,14 +2,13 @@
   "name": "goals_code_along",
   "version": "1.0.0",
   "description": "Goals Setter App from YouTube tutorial",
-  "main": "server.js",
+  "main": "./backend/server.js",
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "keywords": [],
   "author": "O. Sharpe",
   "license": "MIT",
   "dependencies": {
