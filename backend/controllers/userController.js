@@ -3,11 +3,11 @@ const bcrypt = require("bcryptjs");
 const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 
-const Headers = {
-    "Access-Control-Allow-Headers": "*",
-    "Access-Control-Allow-Methods": "*",
-    "Access-Control-Allow-Origin": "*"
-};
+// const Headers = {
+//     "Access-Control-Allow-Headers": "*",
+//     "Access-Control-Allow-Methods": "*",
+//     "Access-Control-Allow-Origin": "*"
+// };
 
 // @desc        Register new user
 // @route       POST /api/users
@@ -78,7 +78,7 @@ const loginUser = asyncHandler(async(req, res) => {
 // @route       GET /api/users/me
 // @access      Private
 const getMe = asyncHandler(async(req, res) => {
-    res.status(200, Headers).json(req.user);
+    res.status(200).json(req.user);
 });
 
 // GENERATE JWT
