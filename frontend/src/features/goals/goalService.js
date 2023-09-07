@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_URL = "https://newsharpgoal.onrender.com/api/goals/";
+// const API_URL = "https://newsharpgoal.onrender.com/api/goals/";
+const API_URL = "/api/goals/";
 
 // CREATE NEW GOAL
 const createGoal = async (goalData, token) => {
