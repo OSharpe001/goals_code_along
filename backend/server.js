@@ -24,7 +24,15 @@ app.use("/api/goals", require("./routes/goalRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));
 
 
-app.use(cors());
+// SETTING UP CORS OPTIONS TO AVOID ACCESS-CONTROL-ALLOW-ORIGIN ISSUES
+const corsOption = {
+    origin: "*",
+    methods: "GET, PUT, POST, DELETE",
+    credentials: true,
+    exposeHeaders: ["X-auth-token"],
+}
+// TRYING TO AVOID THE ACCESS-CONTROL-ALLOW-ORIGIN ISSUE
+app.use(cors(corsOption));
 // --
 // ADDING CORS PARAMETERS TO ALLOW "ACCESS-CONTROL-ALLOW-ORIGIN"
 // app.use(cors({
